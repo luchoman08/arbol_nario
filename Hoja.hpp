@@ -24,6 +24,8 @@ class Hoja{
  int adicionar_hijo(Hoja *hijo);
  void set_padre(Hoja *padre);
  bool existencia_hijo_por_caracter(char caracter);
+ void marcarComoHojaFinal();
+ bool esHoja();
 
 };
 
