@@ -107,4 +107,23 @@ void inicializar_padre(Hoja *padre)
   padre->set_padre(padre);
 }
 
-bool Hoja::esHoja(){return this->hoja_final;}
+bool Hoja::esHojaFinal(){return this->hoja_final;}
+
+bool Hoja::existe(std::string palabra, Hoja *padre){
+		
+		Hoja* actual = padre;
+		int palabra_size = palabra.size();
+		for (int i = 0 ; i < palabra_size ; i++){
+			
+				if (actual->existencia_hijo_por_caracter(palabra.at(i))){
+						actual = actual->get_hijo_por_caracter(palabra.at(i));
+					}else{
+							return false;
+						}
+			
+			}
+		return actual->esHojaFinal();
+		
+	
+	
+	}
