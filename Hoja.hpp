@@ -21,9 +21,10 @@ class Hoja{
  std::vector <Hoja*> get_hijos();
  void set_caracter(char nuevo_caracter);
  char get_caracter();
- void adicionar_hijo(Hoja *hijo);
+ int adicionar_hijo(Hoja *hijo);
  void set_padre(Hoja *padre);
  bool existencia_hijo_por_caracter(char caracter);
+
 };
 
 #endif
