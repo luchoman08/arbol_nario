@@ -2,13 +2,16 @@
 #define Hoja_hpp
 #include <string>
 #include <vector>
+#include "Registro.cpp"
 
 class Hoja{
+	
  private:
  char caracter;
  std::vector<Hoja*> hijos;
  Hoja* padre;
  bool hoja_final;
+ std::vector<Registro*>registros;
  
  public:
  
@@ -27,6 +30,9 @@ class Hoja{
  void marcarComoHojaFinal();
  bool esHojaFinal();
  bool existe(std::string palabra, Hoja *padre);
+ Hoja* getHojaFinal(std::string palabra, Hoja *padre);
+ Registro* get_Registro(std::string palabraOriginal);
+ void adicionarRegistro(Registro *registro);
 
 };
 

@@ -27,11 +27,11 @@ char Hoja::get_caracter(){
 }
 int Hoja::adicionar_hijo(Hoja *hijo){ //si el hijo no existia lo adiciona y retorna 0, si ya estaba no adiciona nada y retorna -1
 	if(!existencia_hijo_por_caracter(hijo->get_caracter())){
-	this->hijos.push_back(hijo);
-	return 0;
+		this->hijos.push_back(hijo);
+		return 0;
 	}
 	return -1;
-	}
+}
 	
 Hoja* Hoja::get_hijo_por_posicion(int pos){
 return hijos.at(pos);	
@@ -87,8 +87,33 @@ void ingresar_palabra(string palabra, Hoja *padre)
 	}
 	
 	actual->marcarComoHojaFinal();
-	//cout << actual->get_caracter() << endl;
-	//cout << actual->esHoja() << endl;
+	
+					
+}
+
+void ingresar_palabra_con_registro(string palabra, Hoja *padre,Registro *registro)
+{
+	Hoja* actual = padre;
+	Hoja* hijo_ingresar = new Hoja();
+	int palabra_size =  palabra.size(), resultado;
+		for(int i = 0; i <palabra_size;i++)
+		{
+			hijo_ingresar->set_caracter(palabra.at(i));	
+			resultado = actual->adicionar_hijo(hijo_ingresar);
+				if(resultado == 0)
+				{
+					actual = hijo_ingresar;
+					hijo_ingresar = new Hoja();
+				}
+			else
+			{
+				actual = actual->get_hijo_por_caracter(palabra.at(i));
+				hijo_ingresar = new Hoja();
+			}
+	}
+	
+	actual->marcarComoHojaFinal();
+	actual->adicionarRegistro(registro);
 					
 }
 
@@ -114,16 +139,44 @@ bool Hoja::existe(std::string palabra, Hoja *padre){
 		Hoja* actual = padre;
 		int palabra_size = palabra.size();
 		for (int i = 0 ; i < palabra_size ; i++){
-			
 				if (actual->existencia_hijo_por_caracter(palabra.at(i))){
 						actual = actual->get_hijo_por_caracter(palabra.at(i));
 					}else{
 							return false;
 						}
-			
 			}
 		return actual->esHojaFinal();
-		
-	
-	
 	}
+
+Registro* Hoja::get_Registro(std::string palabraOriginal){
+		int registros_size = this->registros.size();
+		for (int i = 0 ; i < registros_size;i++){
+			
+				if (this->registros[i]->get_registro() == palabraOriginal){
+						return this->registros[i];
+					}
+			}
+		return new Registro();
+	};
+
+ void Hoja::adicionarRegistro(Registro *registro){
+		this->registros.push_back(registro);
+	 };
+	 
+Hoja* Hoja::getHojaFinal(std::string palabra, Hoja *padre){
+	
+		Hoja* actual = padre;
+		int palabra_size = palabra.size();
+		for (int i = 0 ; i < palabra_size ; i++){
+				if (actual->existencia_hijo_por_caracter(palabra.at(i))){
+						actual = actual->get_hijo_por_caracter(palabra.at(i));
+					}else{
+							return new Hoja();
+						}
+			}
+		if (actual->esHojaFinal()){
+				return actual;
+			}
+		return new Hoja();
+	
+	};
