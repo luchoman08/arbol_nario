@@ -1,4 +1,4 @@
-/*#include "Hoja.cpp"*/
+/*#include "Hoja.cpp"*//**/
 #include "Tabla.cpp"
 #include <iostream>
 #include <string>
@@ -29,7 +29,7 @@ int main(int argv, char** args){
 	std::cout << tabla->get_registro("","")[0]->get_registro_derecho()->get_registro() << std::endl;
 	std::cout << tabla->get_registro("","")[0]->get_registro_derecho()->get_registro_derecho()->get_registro() << std::endl;*/
 	
-
+/*
   Registro x; //Centro
 	x.set_registro("casa");
 	Registro y; //Izquierda
@@ -47,9 +47,10 @@ int main(int argv, char** args){
   std::cout << padre.existe("casa", &padre) << std::endl;
   std::cout << padre.getHojaFinal("casa", &padre)->get_Registro("casa")->get_registro() << std::endl;//Centro
   std::cout << padre.getHojaFinal("casa", &padre)->get_Registro("casa")->get_registro_derecho()->get_registro() << std::endl;//Derecha
-  std::cout << padre.getHojaFinal("casa", &padre)->get_Registro("casa")->get_registro_izquierdo()->get_registro() << std::endl;//Izquierda
+  std::cout << padre.getHojaFinal("casa", &padre)->get_Registro("casa")->get_registro_izquierdo()->get_registro() << std::endl;//Izquierda*/
   
-  /*vector <string> palabras;
+  Hoja padre;
+  vector <string> palabras;
   Lectura lectura;
   lectura.Leer("in.txt");
   palabras=lectura.getPalabras();
@@ -64,9 +65,9 @@ int main(int argv, char** args){
 	  
 		ingresar_palabra(palabras[i],&padre);
 	  
-	  }*/
+	  }
 	  
-   
+   ingresar_palabra("pene",&padre);
   
   
   //cout<<padre.get_hijos().at(0)->get_hijos().at(0)->get_hijos().at(0)->get_hijos().at(0)->existencia_hijo_por_caracter('s')<<endl;
@@ -98,12 +99,12 @@ int main(int argv, char** args){
 	cout << x.get_registro_izquierdo()->get_registro() << " - " << x.get_registro() << " - " << x.get_registro_derecho()->get_registro();*/
 	
   
-	/*bool existe = false;
+	bool existe = false;
     clock_t start = clock();
-    existe = padre.existe("pene", &padre);
+    existe = padre.existe("asdasdasd", &padre);
     clock_t stop = clock();
     cout << existe << endl;
     double elapsed = (double)(stop - start) / CLOCKS_PER_SEC;
-    printf("Time elapsed in ms: %f", elapsed);*/
+    printf("Time elapsed in ms: %f", elapsed);
   return 0;
 }
