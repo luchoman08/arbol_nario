@@ -1,5 +1,5 @@
-/*#include "Hoja.cpp"*/
-#include "Tabla.cpp"
+#include "Hoja.cpp"
+/*#include "Tabla.cpp"*/ //Contiene Hoja
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -50,22 +50,22 @@ int main(int argv, char** args){
   std::cout << padre.getHojaFinal("casa", &padre)->get_Registro("casa")->get_registro_izquierdo()->get_registro() << std::endl;//Izquierda*/
   
   Hoja padre;
+  inicializar_padre(&padre);
+  
   vector <string> palabras;
   Lectura lectura;
   lectura.Leer("in.txt");
   palabras=lectura.getPalabras();
   
   int palabras_size = palabras.size();
-  
-  inicializar_padre(&padre);
-  
-  imprimir_hijos_arbol(&padre);
-  
   for (int i = 0 ; i < palabras_size; i++){
 	  
 		ingresar_palabra(palabras[i],&padre);
 	  
 	  }
+  imprimir_hijos_arbol(&padre);
+  
+  
 	  
   
   
@@ -97,13 +97,14 @@ int main(int argv, char** args){
 	
 	cout << x.get_registro_izquierdo()->get_registro() << " - " << x.get_registro() << " - " << x.get_registro_derecho()->get_registro();*/
 	
-  
+	//Toma de tiempo
+    /*
 	bool existe = false;
     clock_t start = clock();
-    existe = padre.existe("asdasdasd", &padre);
+    existe = padre.existe("niño", &padre);
     clock_t stop = clock();
     cout << existe << endl;
     double elapsed = (double)(stop - start) / CLOCKS_PER_SEC;
-    printf("Time elapsed in ms: %f", elapsed);
+    printf("Time elapsed in ms: %f", elapsed);*/
   return 0;
 }
