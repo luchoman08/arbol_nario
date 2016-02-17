@@ -1,4 +1,4 @@
-/*#include "Hoja.cpp"*//**/
+/*#include "Hoja.cpp"*/
 #include "Tabla.cpp"
 #include <iostream>
 #include <string>
@@ -67,7 +67,6 @@ int main(int argv, char** args){
 	  
 	  }
 	  
-   ingresar_palabra("pene",&padre);
   
   
   //cout<<padre.get_hijos().at(0)->get_hijos().at(0)->get_hijos().at(0)->get_hijos().at(0)->existencia_hijo_por_caracter('s')<<endl;
