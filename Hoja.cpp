@@ -87,7 +87,7 @@ void ingresar_palabra(string palabra, Hoja *padre)
 	}
 	
 	actual->marcarComoHojaFinal();
-	
+	/*actual->ingresarFinalPara(palabra);*/
 					
 }
 
@@ -114,6 +114,7 @@ void ingresar_palabra_con_registro(string palabra, Hoja *padre,Registro *registr
 	
 	actual->marcarComoHojaFinal();
 	actual->adicionarRegistro(registro);
+	/*actual->ingresarFinalPara(palabra);*/
 					
 }
 
@@ -132,7 +133,12 @@ void inicializar_padre(Hoja *padre)
   padre->set_padre(padre);
 }
 
-bool Hoja::esHojaFinal(){return this->hoja_final;}
+bool Hoja::esHojaFinal(){
+		/*for (int i = 0 ; i < this->final_para.size(); i++){
+				std::cout << this->final_para[i] << std::endl;
+			}*/
+		return this->hoja_final;
+	}
 
 bool Hoja::existe(std::string palabra, Hoja *padre){
 		
@@ -178,5 +184,33 @@ Hoja* Hoja::getHojaFinal(std::string palabra, Hoja *padre){
 				return actual;
 			}
 		return new Hoja();
+	
+	};
+
+void Hoja::ingresarFinalPara(std::string cadena){
+	
+		this->final_para.push_back(cadena);
+	
+	};
+	
+void Hoja::eliminarFinalPara(std::string cadena){
+		
+		int final_para_size = this->final_para.size();
+		for (int i = 0; i < final_para_size ; i++){
+			
+				if (this->final_para[i] == cadena){
+					
+						this->final_para.erase(this->final_para.begin()+i);
+					
+					}
+			
+			}
+	
+	};
+
+std::vector <std::string>* Hoja::finalPara(){
+		std::vector <std::string> tmp;
+		tmp = this->final_para;
+		return &tmp;
 	
 	};

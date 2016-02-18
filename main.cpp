@@ -3,9 +3,13 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <unistd.h>
+
 
 
 int main(int argv, char** args){
+	
+	
 	
 	/*std::vector <std::string> columnas;
 	columnas.push_back("Columna1");
@@ -59,11 +63,12 @@ int main(int argv, char** args){
   
   int palabras_size = palabras.size();
   for (int i = 0 ; i < palabras_size; i++){
-	  
+		usleep(100);
 		ingresar_palabra(palabras[i],&padre);
 	  
-	  }
-  imprimir_hijos_arbol(&padre);
+	  } 
+	
+  //imprimir_hijos_arbol(&padre);
   
   
 	  
@@ -98,13 +103,15 @@ int main(int argv, char** args){
 	cout << x.get_registro_izquierdo()->get_registro() << " - " << x.get_registro() << " - " << x.get_registro_derecho()->get_registro();*/
 	
 	//Toma de tiempo
-    /*
+    
 	bool existe = false;
     clock_t start = clock();
-    existe = padre.existe("niño", &padre);
+    existe = padre.existe("ave", &padre);
     clock_t stop = clock();
     cout << existe << endl;
     double elapsed = (double)(stop - start) / CLOCKS_PER_SEC;
-    printf("Time elapsed in ms: %f", elapsed);*/
+    printf("Time elapsed in ms: %f", elapsed);
+    
+    
   return 0;
 }

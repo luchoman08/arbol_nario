@@ -12,6 +12,7 @@ class Hoja{
  Hoja* padre;
  bool hoja_final;
  std::vector<Registro*>registros;
+ std::vector<std::string>final_para;
  
  public:
  
@@ -33,6 +34,9 @@ class Hoja{
  Hoja* getHojaFinal(std::string palabra, Hoja *padre);
  Registro* get_Registro(std::string palabraOriginal);
  void adicionarRegistro(Registro *registro);
+ void ingresarFinalPara(std::string cadena);
+ void eliminarFinalPara(std::string cadena);
+ std::vector <std::string>* finalPara();
 
 };
 
